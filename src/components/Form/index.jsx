@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { isValidElement } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './index.css'
@@ -38,6 +38,8 @@ const LoginForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
+      {({isValid,dirty})=>(
+     
       <Form>
         <div className='Form_signUP'>
           <div>
@@ -67,11 +69,12 @@ const LoginForm = () => {
         
         
 
-        <button type="submit" disabled={false}>
+        <button type="submit" disabled={!isValid || !dirty}>
           Sign Up
         </button>
         </div>
       </Form>
+      ) }
     </Formik>
   );
 };

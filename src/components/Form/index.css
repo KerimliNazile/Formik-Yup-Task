@@ -33,6 +33,9 @@ button{
     border: none;
     border-radius: 12%;
 }
+button:disabled{
+    background-color: dimgray;
+}
 body{
      background-color:#1c8ef9;
 }
